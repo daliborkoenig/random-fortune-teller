@@ -315,7 +315,7 @@ return `Thank you for using the Fortune teller 2000. <br><br>
 In ${Math.floor((Math.random() * 10) + 1)} years you will be living in ${cityList[Math.floor((Math.random() * 100) + 1)]} and working as a ${jobList[Math.floor((Math.random() * 100) + 1)]}. <br><br>
 You will be ${relationshipStatus[Math.floor((Math.random() * 3))]} ${nameList[Math.floor((Math.random() * 100)+1)]} and living ${livingSituation[Math.floor((Math.random() *6))]} together. and you will have ${Math.floor(Math.random() + 10)} children.<br><br>
 And also, and I really shouldn't be telling you this, <br><br>
-you will die in ${Math.floor(Math.random()*20)} years!` 
+you will die in ${Math.floor(Math.random()*60)} years!` 
 }
 
 console.log(fortuneTeller());
