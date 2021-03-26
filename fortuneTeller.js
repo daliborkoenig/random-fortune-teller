@@ -101,5 +101,3 @@ function fortune(){
   let rootElement = document.querySelector('#fortune')
   rootElement.innerHTML = fortuneTeller();
 }
-
-console.log(fortuneTeller());
