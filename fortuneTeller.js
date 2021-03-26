@@ -306,21 +306,97 @@ const cityList = [
 'Maracaibo, Venezuela'
 ]
 
-const relationshipStatus = ['married to', 'engaged with', 'in a civil partnership with']
+const relationshipStatus = ['married', 'engaged', 'in a civil partnership']
 
-const livingSituation = ['in a house', 'in a villa', 'in an apartment', 'in the street', 'in a hotel', 'in a motel']
+const livingSituation = ['House', 'Villa', 'Apartment', 'Street', 'Hotel', 'Motel']
 
-function fortuneTeller(){
-return `Thank you for using the Fortune teller 2000. <br><br>
-In ${Math.floor((Math.random() * 10) + 1)} years you will be living in ${cityList[Math.floor((Math.random() * 100) + 1)]} and working as a ${jobList[Math.floor((Math.random() * 100) + 1)]}. <br><br>
-You will be ${relationshipStatus[Math.floor((Math.random() * 3))]} ${nameList[Math.floor((Math.random() * 100)+1)]} and living ${livingSituation[Math.floor((Math.random() *6))]} together. and you will have ${Math.floor(Math.random() + 10)} children.<br><br>
-And also, and I really shouldn't be telling you this, <br><br>
-you will die in ${Math.floor(Math.random()*60)} years!` 
+function inYears(){
+  let y=Math.floor((Math.random() * 10) + 1)
+  if (y == 1){
+    return `<b>${y} year</b>`
+  }
+  else{
+    return `<b>${y} years</b>`
+  }
+}
+function inRandomCity(){
+  return `in <b>${cityList[Math.floor((Math.random() * 100) + 1)]}</b>`
+}
+function asRandomJob(){
+  let job = jobList[Math.floor((Math.random() * 100))];
+  let f = job.slice(0,1).toLowerCase();
+  if (f=='a' || f=='e' || f=='i' || f=='o' || f=='u'){
+    return `as an <b>${job}</b>`
+  }
+  else {
+    return `as a <b>${job}</b>`
+  }
+}
+function randomStatus(){
+  let s=relationshipStatus[Math.floor((Math.random() * 3))]
+  if (s==='married'){
+    return `<b>${s}</b> to`
+  }
+  else {
+    return `<b>${s}</b> with`
+  }
+}
+function name(){
+  let n=nameList[Math.floor((Math.random() * 100)+1)];
+  return `<b>${n}</b>`
+}
+function living(){
+  let living=livingSituation[Math.floor((Math.random() *6))];
+  let f = living.slice(0,1).toLowerCase();
+  if (living=='Street'){
+    return `<b>the ${living}</b>`
+  }
+  else if (f=='a' || f=='e' || f=='i' || f=='o' || f=='u'){
+    return `an <b>${living}</b>`
+  }
+  else {
+    return `a <b>${living}</b>`
+  }
 }
 
-console.log(fortuneTeller());
+function children(){
+  let c=Math.floor(Math.random()*10);
+  if (c==0){
+    return `<b>no children</b>`
+  }
+  else if (c==1){
+    return `<b>${c} child</b>`
+  }
+  else{
+    return `<b>${c} children</b>`
+  }
+}
+
+function dieIn(){
+  d=Math.floor(Math.random()*60)
+  if (d==0){
+    return `<b>very, very, very soon!</b>`
+  }
+  else if(d==1){
+    return `in <b>${d} year!</b>`
+  }
+  else{
+    return `in <b>${d} years!</b>`
+  }
+}
+console.log(dieIn());
+
+function fortuneTeller(){
+  return `Thank you for using the Fortune teller 2000. <br><br>
+  In ${inYears()} you will be living ${inRandomCity()} and working as a ${asRandomJob()}. <br><br>
+  You will be ${randomStatus()} ${name()} and you will be living in ${living()} together. Also, and this might sound crazy, but you you will have ${children()} together.<br><br>
+  And also, and I really shouldn't be telling you this, <br><br>
+  you will die ${dieIn()}` 
+}
 
 function fortune(){
   let rootElement = document.querySelector('#fortune')
   rootElement.innerHTML = fortuneTeller();
 }
+
+console.log(fortuneTeller());
