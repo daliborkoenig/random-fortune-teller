@@ -4,7 +4,7 @@ const jobList = [
 'Chick Sexer',
 'Lab Rat',
 'Media Distribution Officer',
-'Animal Colourist',
+'Animal Colorist',
 'Hair Boiler',
 'Digital Overlord',
 'Reindeer Walker',
